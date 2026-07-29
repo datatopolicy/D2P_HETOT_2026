@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Materials - D2P Regional Health Economics TOT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #5B2A6F;
+            --purple-deep: #3E1C4D;
+            --orange: #F2994A;
+            --orange-deep: #D97B2A;
+            --cream: #FAF7F2;
+            --ink: #2B2530;
+            --ink-soft: #5A5260;
+            --line: #E6DFD6;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', Georgia, serif;
+            color: var(--purple-deep);
+            font-weight: 500;
+        }
+
+        a { color: inherit; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Nav */
+        .navbar {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--purple-deep);
+            letter-spacing: 0.01em;
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 1.75rem;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--orange-deep);
+            border-bottom-color: var(--orange);
+        }
+
+        /* Page header */
+        .page-header {
+            background: linear-gradient(160deg, var(--purple-deep) 0%, var(--purple) 65%, var(--orange-deep) 130%);
+            color: #FFF;
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+        }
+        .page-header h1 {
+            color: #FFF;
+            font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+        .page-header p { color: #EFE4F1; font-size: 1.05rem; }
+
+        main { padding: 3rem 0 4rem; }
+
+        .materials-intro { max-width: 780px; margin: 0 auto 2.5rem; }
+        .materials-intro h2 { margin-bottom: 1rem; font-size: 1.4rem; }
+        .materials-intro > p { color: var(--ink-soft); margin-bottom: 1.5rem; }
+
+        .note-banner {
+            background: #F3EAF6;
+            border-left: 4px solid var(--purple);
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+        }
+        .note-banner strong { color: var(--purple-deep); }
+
+        .materials-section { margin-bottom: 3rem; }
+        .materials-section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--orange);
+        }
+
+        .materials-category {
+            background: #FFF;
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--orange);
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .materials-category h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
+        .materials-category > p { color: var(--ink-soft); margin-bottom: 1rem; }
+        .materials-list ul { padding-left: 1.2rem; color: var(--ink-soft); }
+        .materials-list li { margin-bottom: 0.4rem; }
+
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .reference-item {
+            background: #FFF;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+        .reference-item h4 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .reference-item p { color: var(--ink-soft); font-size: 0.92rem; }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .tech-item {
+            background: #FFF;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+        .tech-item h4 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--purple-deep); font-family: 'Inter', sans-serif; }
+        .tech-item ul { padding-left: 1.2rem; color: var(--ink-soft); }
+        .tech-item li { margin-bottom: 0.35rem; }
+
+        .resources-list h4 { font-size: 1.05rem; margin: 1.5rem 0 0.75rem; color: var(--purple-deep); font-family: 'Inter', sans-serif; }
+        .resources-list ul { padding-left: 1.2rem; color: var(--ink-soft); }
+        .resources-list li { margin-bottom: 0.5rem; }
+        .resources-list a { color: var(--orange-deep); text-decoration: underline; }
+
+        @media (max-width: 720px) {
+            .reference-grid, .tech-grid { grid-template-columns: 1fr; }
+            .nav-menu { gap: 1rem; font-size: 0.85rem; }
+        }
+
+        /* Footer */
+        .footer { background: var(--purple-deep); color: #E9DEEC; padding: 2.5rem 0; }
+        .footer-content { text-align: center; }
+        .footer-logos { margin-bottom: 1rem; }
+        .footer-logo { max-height: 48px; }
+        .footer-text p { font-size: 0.85rem; color: #C9B6CE; max-width: 700px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">D2P Health Economics TOT 2026</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="facilitators.html">Facilitators</a></li>
+                <li><a href="materials.html" class="active">Training Materials</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Training Materials</h1>
+            <p>Resources and pre-work for the Regional Health Economics TOT</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="materials-intro">
+            <h2>Workshop Resources</h2>
+            <p>This page will host presentations, exercises, and reference guides for the Regional Health Economics TOT as they are finalized. Because the workshop is still in the participant selection stage, materials, group assignments, and country policy brief documents will be added once participants are confirmed.</p>
+            <div class="note-banner">
+                <p><strong>Note:</strong> Confirmed participants will receive direct links to lecture slides, templates, and group materials by email ahead of the workshop. This page will be updated as those materials are finalized.</p>
+            </div>
+        </section>
+
+        <section class="materials-section">
+            <h2>Pre-Workshop Preparation</h2>
+            <div class="materials-category">
+                <h3>🧩 Before You Arrive</h3>
+                <p>As this is a compact four-day workshop, participants are asked to complete some pre-work in advance to make full use of in-person time.</p>
+                <div class="materials-list">
+                    <ul>
+                        <li>Review the pre-workshop guide (to be distributed after confirmation)</li>
+                        <li>Install and test Amua on your laptop before arrival</li>
+                        <li>Come prepared with a draft policy question for your country's policy brief</li>
+                        <li>Gather any available secondary data on your country's status quo strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="materials-section">
+            <h2>Core Curriculum Topics</h2>
+            <div class="materials-category">
+                <h3>📊 Lecture Sessions</h3>
+                <p>Presentations covering the economic evaluation curriculum for the TOT</p>
+                <div class="materials-list">
+                    <ul>
+                        <li>Closer Look: Economic Modules / Framing an Economic Evaluation</li>
+                        <li>Decision Trees</li>
+                        <li>Common Errors and Challenges in D2P Decision Trees</li>
+                        <li>Cost Analysis</li>
+                        <li>Literature Search: Finding Epidemiological and Cost Data</li>
+                        <li>Introduction to Amua</li>
+                        <li>Health Outcomes in CEA: QALYs, DALYs, and Treatment Thresholds</li>
+                        <li>Using AI in Decision Modeling and Economic Evaluation</li>
+                        <li>Economic Evaluation Methods and ICER</li>
+                        <li>Sensitivity Analysis</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="materials-category">
+                <h3>✏️ Hands-On Group Work</h3>
+                <p>Each country group will build out a decision tree model for a pre-determined country policy brief, with trainer feedback throughout the week.</p>
+                <div class="materials-list">
+                    <ul>
+                        <li>Setting Up the Status Quo Decision Tree (Excel)</li>
+                        <li>Working on the Status Quo Model (Amua)</li>
+                        <li>Creating a Policy Intervention (Amua)</li>
+                        <li>Troubleshooting Interventions</li>
+                        <li>Interpretation of Results and ICER Exercise</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="materials-section">
+            <h2>Technical Requirements</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Required Software</h4>
+                    <ul>
+                        <li>Microsoft Excel (or compatible)</li>
+                        <li>Amua (open-source decision modeling software)</li>
+                        <li>Internet browser (Chrome, Firefox, or Safari)</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <h4>What to Bring</h4>
+                    <ul>
+                        <li>Laptop with Excel and Amua pre-installed</li>
+                        <li>Power adapter</li>
+                        <li>Any available secondary data for your country's status quo strategy</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <h4>Getting Started with Amua</h4>
+                    <ul>
+                        <li><a href="https://github.com/zward/Amua/wiki/Getting-Started" target="_blank">Amua Installation Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="materials-section">
+            <h2>Reference Documents</h2>
+            <div class="reference-grid">
+                <div class="reference-item">
+                    <h4>Call for Participants</h4>
+                    <p>Full program overview, eligibility criteria, and format details for the Regional Health Economics TOT</p>
+                </div>
+                <div class="reference-item">
+                    <h4>Eligibility Criteria</h4>
+                    <p>Ministry of health or government health agency employment, prior D2P participation, and relevant graduate training in health economics or a related field</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="materials-section">
+            <h2>Additional Resources</h2>
+            <div class="resources-list">
+                <h4>Self-Paced D2P Online Modules</h4>
+                <ul>
+                    <li><a href="https://learning.vitalstrategies.org/data-to-policy/" target="_blank">D2P Online Learning Platform</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=Zzu4W_Hz9ng" target="_blank">Data to Policy Program Overview (video)</a></li>
+                </ul>
+
+                <h4>Helpful Links</h4>
+                <ul>
+                    <li><a href="https://www.vitalstrategies.org/data-for-health/" target="_blank">Data for Health Initiative Website</a></li>
+                    <li><a href="https://www.d4hdataimpact.org/data-to-policy/" target="_blank">Data to Policy Website</a></li>
+                    <li><a href="https://geratcliff.github.io/vital-2026-Cebu/" target="_blank">Decision Modeling for Health Economic Evaluation — Cebu, Philippines 2026</a></li>
+                    <li><a href="https://graveja0.github.io/vital-fellows-2025-website/" target="_blank">Vanderbilt Economic Modeling Fellowship — May 2025</a></li>
+                    <li><a href="https://graveja0.github.io/vital-istanbul-2024/index.html" target="_blank">Decision Modeling for Health Economic Evaluation — Istanbul, Türkiye 2024</a></li>
+                    <li><a href="https://vchem-vital-workshop-2022.netlify.app/" target="_blank">Health Economics Modeling Workshop — Bangkok, Thailand 2022</a></li>
+                    <li><a href="https://github.com/zward/Amua/wiki/Getting-Started" target="_blank">Getting Started with Amua</a></li>
+                    <li><a href="https://www.cdcfoundation.org/" target="_blank">CDC Foundation</a></li>
+                    <li><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">PubMed (Literature Search)</a></li>
+                    <li><a href="https://scholar.google.com/" target="_blank">Google Scholar</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logos">
+                    <img src="D2P1.jpg" alt="Data to Policy - Partner Organizations" class="footer-logo">
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2026 The Data to Policy (D2P) program, developed by Vital Strategies, CDC Foundation and the U.S. Centers for Disease Control and Prevention with support from the Bloomberg Philanthropies Data for Health Initiative</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

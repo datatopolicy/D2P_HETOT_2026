@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D2P Regional Health Economics TOT — Ho Chi Minh City 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #5B2A6F;
+            --purple-deep: #3E1C4D;
+            --orange: #F2994A;
+            --orange-deep: #D97B2A;
+            --cream: #FAF7F2;
+            --ink: #2B2530;
+            --ink-soft: #5A5260;
+            --line: #E6DFD6;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', Georgia, serif;
+            color: var(--purple-deep);
+            font-weight: 500;
+        }
+
+        a { color: inherit; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Nav */
+        .navbar {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--purple-deep);
+            letter-spacing: 0.01em;
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 1.75rem;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--orange-deep);
+            border-bottom-color: var(--orange);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(160deg, var(--purple-deep) 0%, var(--purple) 65%, var(--orange-deep) 130%);
+            color: #FFF;
+            padding: 5.5rem 1.5rem 4.5rem;
+            text-align: center;
+        }
+        .hero-content { max-width: 780px; margin: 0 auto; }
+        .hero h1 {
+            color: #FFF;
+            font-size: clamp(2rem, 4.2vw, 3rem);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: #FBD9B0;
+            margin-bottom: 0.75rem;
+        }
+        .hero-description {
+            font-size: 1.05rem;
+            color: #EFE4F1;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        section { padding: 3.5rem 0; }
+        .welcome-section { max-width: 780px; margin: 0 auto; padding: 3.5rem 1.5rem 1rem; text-align: center; }
+        .welcome-section h2 { margin-bottom: 1rem; font-size: 1.6rem; }
+        .welcome-section p { color: var(--ink-soft); }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            padding-top: 1rem;
+        }
+        .info-card {
+            background: #FFF;
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--orange);
+            border-radius: 10px;
+            padding: 1.75rem;
+        }
+        .info-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.85rem;
+        }
+        .info-card p { color: var(--ink-soft); margin-bottom: 0.6rem; }
+        .info-card ul { padding-left: 1.2rem; color: var(--ink-soft); }
+        .info-card li { margin-bottom: 0.4rem; }
+        .info-card ol { padding-left: 1.2rem; color: var(--ink-soft); }
+        .info-card ol li { margin-bottom: 0.5rem; }
+
+        .note-banner {
+            background: #F3EAF6;
+            border-left: 4px solid var(--purple);
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+        }
+
+        /* Key details */
+        .key-details h2 { text-align: center; margin-bottom: 2rem; font-size: 1.6rem; }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+        .detail-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: #FFF;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+        }
+        .detail-item h4 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--orange-deep);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+        .detail-item p { color: var(--ink-soft); font-size: 0.95rem; }
+
+        /* CTA */
+        .cta-section { text-align: center; }
+        .cta-section h2 { margin-bottom: 1.5rem; font-size: 1.6rem; }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-primary { background: var(--orange); color: #FFF; }
+        .btn-primary:hover { box-shadow: 0 6px 16px rgba(217,123,42,0.35); }
+        .btn-secondary { background: #FFF; color: var(--purple-deep); border: 1px solid var(--line); }
+        .btn-secondary:hover { border-color: var(--purple); }
+
+        /* Footer */
+        .footer {
+            background: var(--purple-deep);
+            color: #E9DEEC;
+            padding: 2.5rem 0;
+            margin-top: 1rem;
+        }
+        .footer-content { text-align: center; }
+        .footer-logos { margin-bottom: 1rem; }
+        .footer-logo { max-height: 48px; }
+        .footer-text p { font-size: 0.85rem; color: #C9B6CE; max-width: 700px; margin: 0 auto; }
+
+        @media (max-width: 720px) {
+            .info-grid, .details-grid { grid-template-columns: 1fr; }
+            .nav-menu { gap: 1rem; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">D2P Health Economics TOT 2026</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="facilitators.html">Facilitators</a></li>
+                <li><a href="materials.html">Training Materials</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Regional Data to Policy (D2P)<br>Health Economics Training of Trainers</h1>
+            <p class="hero-subtitle">December 7–10, 2026 | Ho Chi Minh City, Vietnam</p>
+            <p class="hero-description">Training a regional cohort of mentors to teach economic evaluation methods — and lead the next generation of D2P participants through decision modeling for health policy.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="welcome-section">
+            <h2>Welcome to the Regional Health Economics TOT</h2>
+            <p>The Data to Policy (D2P) program, developed by the U.S. Centers for Disease Control and Prevention (CDC) and Vital Strategies as part of the Bloomberg Philanthropies Data for Health Initiative, aims to bridge the data-policy gap through team-based training and mentoring of health policy professionals.</p>
+        </section>
+
+        <section class="info-grid">
+            <div class="info-card">
+                <h3>Workshop Objectives</h3>
+                <p>By the end of the TOT workshop, participants will be able to:</p>
+                <ul>
+                    <li>Explain core cost-effectiveness analysis concepts, including costing, benefits, and incremental analysis</li>
+                    <li>Build and troubleshoot decision tree models using Amua</li>
+                    <li>Apply QALYs, DALYs, and treatment thresholds to health outcomes</li>
+                    <li>Interpret ICERs and conduct sensitivity analysis</li>
+                    <li>Explore applications of AI in decision modeling and economic evaluation</li>
+                    <li>Teach economic evaluation methods to future D2P participants</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Program Background</h3>
+                <p>The D2P program relies on the eventual institutionalization of the course within local governments for sustainability. One aspect of this country ownership is the Training of Trainers (TOT) model, through which D2P graduates are trained to deliver the course without external facilitation.</p>
+                <p>While TOTs have been completed in many focus countries, there is a clear need for additional instruction on the economic aspects of D2P. This regional TOT trains a subset of mentors from each country specifically on the use of economic evaluation in decision-making, and how to effectively teach these methods to future participants.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Eligibility</h3>
+                <p>Participants should meet the following qualifications:</p>
+                <ol>
+                    <li>Employed by a ministry of health, national health institute, or other government health agency, and have participated in a past D2P program</li>
+                    <li>Hold a master's degree in health economics, biostatistics/statistics, public health, public policy, epidemiology, or a related field, with basic training in health economic evaluation</li>
+                    <li>Demonstrated commitment to complete all aspects of the program</li>
+                    <li>Endorsement of their supervisor to participate</li>
+                </ol>
+                <p>Up to four participants per country will be considered. Participants who attended prior economic workshops (Thailand 2022, Turkey 2024, Kenya 2025, Philippines 2026) are not eligible for this regional TOT.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Expected Deliverables</h3>
+                <p>Participants will gain competencies in:</p>
+                <ul>
+                    <li>Facilitating economic evaluation modules — costing, benefits, and incremental CEA — with confidence</li>
+                    <li>Guiding trainees through building and troubleshooting decision tree models</li>
+                    <li>Supporting the interpretation of ICERs and results of sensitivity analysis</li>
+                    <li>Reviewing and providing feedback on trainees' economic models and policy briefs</li>
+                    <li>Managing common mentoring and facilitation challenges specific to economic evaluation</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="note-banner">
+            <strong>Before You Arrive:</strong> As this is a compact four-day workshop, participants are asked to complete pre-work in advance — reviewing the pre-workshop guide, installing and testing Amua, and coming prepared with a draft policy question and any available secondary data for their country's status quo strategy.
+        </section>
+
+        <section class="key-details">
+            <h2>Key Details</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h4>Dates</h4>
+                    <p>Monday, December 7 – Thursday, December 10, 2026<br>(4 days)</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Location</h4>
+                    <p>Ho Chi Minh City, Vietnam<br>Venue to be confirmed</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Daily Schedule</h4>
+                    <p>Days 1–3: 9:00 AM – 4:00 PM<br>Day 4: 9:00 AM – 3:15 PM<br>Lunch: 12:00 – 1:00 PM</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Format</h4>
+                    <p>Lectures, case studies, and hands-on modeling in Excel and Amua, with daily group work on a country-specific policy brief</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Get Started</h2>
+            <div class="cta-buttons">
+                <a href="agenda.html" class="btn btn-primary">View Full Agenda</a>
+                <a href="materials.html" class="btn btn-secondary">Access Training Materials</a>
+                <a href="facilitators.html" class="btn btn-secondary">Meet the Facilitators</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logos">
+                    <img src="D2P1.jpg" alt="Data to Policy - Partner Organizations" class="footer-logo">
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2026 The Data to Policy (D2P) program, developed by Vital Strategies, CDC Foundation and the U.S. Centers for Disease Control and Prevention with support from the Bloomberg Philanthropies Data for Health Initiative</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

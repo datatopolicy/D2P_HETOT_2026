@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics - D2P Regional Health Economics TOT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #5B2A6F;
+            --purple-deep: #3E1C4D;
+            --orange: #F2994A;
+            --orange-deep: #D97B2A;
+            --cream: #FAF7F2;
+            --ink: #2B2530;
+            --ink-soft: #5A5260;
+            --line: #E6DFD6;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', Georgia, serif;
+            color: var(--purple-deep);
+            font-weight: 500;
+        }
+
+        a { color: inherit; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Nav */
+        .navbar {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--purple-deep);
+            letter-spacing: 0.01em;
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 1.75rem;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--orange-deep);
+            border-bottom-color: var(--orange);
+        }
+
+        /* Page header */
+        .page-header {
+            background: linear-gradient(160deg, var(--purple-deep) 0%, var(--purple) 65%, var(--orange-deep) 130%);
+            color: #FFF;
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+        }
+        .page-header h1 {
+            color: #FFF;
+            font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+        .page-header p { color: #EFE4F1; font-size: 1.05rem; }
+
+        main { padding: 3rem 0 4rem; }
+
+        .logistics-intro { max-width: 780px; margin: 0 auto 2.5rem; }
+        .logistics-intro h2 { margin-bottom: 1rem; font-size: 1.4rem; }
+        .logistics-intro > p { color: var(--ink-soft); }
+
+        .note-banner {
+            background: #F3EAF6;
+            border-left: 4px solid var(--purple);
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+            margin-top: 1.5rem;
+        }
+        .note-banner strong { color: var(--purple-deep); }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+        .detail-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: #FFF;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+        }
+        .detail-item h4 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--orange-deep);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+        .detail-item p { color: var(--ink-soft); font-size: 0.95rem; }
+
+        .logistics-section { margin-bottom: 3rem; }
+        .logistics-section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--orange);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .info-card {
+            background: #FFF;
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--orange);
+            border-radius: 10px;
+            padding: 1.75rem;
+        }
+        .info-card h3 { font-size: 1.15rem; margin-bottom: 0.85rem; }
+        .info-card p { color: var(--ink-soft); margin-bottom: 0.6rem; }
+        .info-card ul { padding-left: 1.2rem; color: var(--ink-soft); }
+        .info-card li { margin-bottom: 0.4rem; }
+        .info-card ol { padding-left: 1.2rem; color: var(--ink-soft); }
+        .info-card ol li { margin-bottom: 0.5rem; }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .tech-item {
+            background: #FFF;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+        .tech-item h4 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--purple-deep); font-family: 'Inter', sans-serif; }
+        .tech-item ul { padding-left: 1.2rem; color: var(--ink-soft); }
+        .tech-item li { margin-bottom: 0.35rem; }
+
+        .timeline {
+            background: #FFF;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .timeline-row {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            border-bottom: 1px solid var(--line);
+        }
+        .timeline-row:last-child { border-bottom: none; }
+        .timeline-row > div { padding: 0.9rem 1.1rem; }
+        .timeline-row > div:first-child {
+            font-weight: 600;
+            color: var(--purple-deep);
+            border-right: 1px solid var(--line);
+        }
+        .timeline-row > div:last-child { color: var(--ink-soft); }
+
+        @media (max-width: 720px) {
+            .details-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid, .tech-grid { grid-template-columns: 1fr; }
+            .timeline-row { grid-template-columns: 1fr; }
+            .timeline-row > div:first-child { border-right: none; border-bottom: 1px solid var(--line); }
+            .nav-menu { gap: 1rem; font-size: 0.85rem; }
+        }
+
+        /* Footer */
+        .footer { background: var(--purple-deep); color: #E9DEEC; padding: 2.5rem 0; }
+        .footer-content { text-align: center; }
+        .footer-logos { margin-bottom: 1rem; }
+        .footer-logo { max-height: 48px; }
+        .footer-text p { font-size: 0.85rem; color: #C9B6CE; max-width: 700px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">D2P Health Economics TOT 2026</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="facilitators.html">Facilitators</a></li>
+                <li><a href="materials.html">Training Materials</a></li>
+                <li><a href="logistics.html" class="active">Logistics</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Workshop Logistics</h1>
+            <p>December 7–10, 2026 | Ho Chi Minh City, Vietnam</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="logistics-intro">
+            <h2>Travel Overview</h2>
+            <p>Vital Strategies and the CDC Foundation will cover the costs of flights, airport transfers, accommodation, meals, incidentals, and all workshop materials for confirmed participants. Participants are expected to arrive Sunday, December 6 and depart Friday, December 11, 2026.</p>
+            <div class="note-banner">
+                <strong>Please note:</strong> Dates and location are subject to change. Confirmed venue details, hotel information, and travel booking instructions will be shared directly with selected participants.
+            </div>
+        </section>
+
+        <section class="details-grid">
+            <div class="detail-item">
+                <h4>Workshop Dates</h4>
+                <p>Monday, Dec 7 – Thursday, Dec 10, 2026</p>
+            </div>
+            <div class="detail-item">
+                <h4>Location</h4>
+                <p>Ho Chi Minh City, Vietnam<br>Venue to be confirmed</p>
+            </div>
+            <div class="detail-item">
+                <h4>Arrival / Departure</h4>
+                <p>Arrive Sun, Dec 6<br>Depart Fri, Dec 11</p>
+            </div>
+            <div class="detail-item">
+                <h4>Language</h4>
+                <p>Conducted in English<br>Interpretation considered as needed</p>
+            </div>
+        </section>
+
+        <section class="logistics-section">
+            <h2>Sample Travel Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-row">
+                    <div>Sun, Dec 6</div>
+                    <div>Arrival in Ho Chi Minh City; airport transfer to hotel</div>
+                </div>
+                <div class="timeline-row">
+                    <div>Mon–Wed, Dec 7–9</div>
+                    <div>Workshop sessions, 9:00 AM – 4:00 PM daily (lunch 12:00–1:00 PM)</div>
+                </div>
+                <div class="timeline-row">
+                    <div>Thu, Dec 10</div>
+                    <div>Final workshop day (half day), 9:00 AM – 3:15 PM, closing ceremony</div>
+                </div>
+                <div class="timeline-row">
+                    <div>Fri, Dec 11</div>
+                    <div>Departure; airport transfer provided</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="logistics-section">
+            <h2>What's Covered</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>✈️ Travel & Accommodation</h3>
+                    <ul>
+                        <li>Round-trip flights</li>
+                        <li>Airport transfers to/from the hotel</li>
+                        <li>Hotel accommodation for the duration of the workshop</li>
+                        <li>Meals and incidentals</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>📚 Workshop Materials</h3>
+                    <ul>
+                        <li>All training materials and printed handouts</li>
+                        <li>Access to lecture slides and exercise templates</li>
+                        <li>Certificate of completion</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="logistics-section">
+            <h2>Before You Arrive</h2>
+            <div class="info-card">
+                <p>As this is a compact four-day workshop, participants are asked to complete some pre-work in advance to make full use of in-person time:</p>
+                <ol>
+                    <li>Review the pre-workshop guide (sent to confirmed participants)</li>
+                    <li>Install and test Amua on your laptop</li>
+                    <li>Come prepared with a draft policy question for your country's policy brief</li>
+                    <li>Gather any available secondary data on your country's status quo strategy</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="logistics-section">
+            <h2>What to Bring</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Required Software</h4>
+                    <ul>
+                        <li>Laptop with Microsoft Excel installed</li>
+                        <li>Amua (open-source decision modeling software) pre-installed and tested</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <h4>Documents</h4>
+                    <ul>
+                        <li>Passport (valid for travel and visa requirements)</li>
+                        <li>Draft policy question and any secondary data for your country brief</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <h4>Other Essentials</h4>
+                    <ul>
+                        <li>Laptop power adapter</li>
+                        <li>Notebook and pens</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="logistics-section">
+            <h2>Questions?</h2>
+            <div class="info-card" style="max-width: 780px;">
+                <p>For questions about travel arrangements, visas, or accommodations, please reach out to the facilitation team directly once your participation has been confirmed.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logos">
+                    <img src="D2P1.jpg" alt="Data to Policy - Partner Organizations" class="footer-logo">
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2026 The Data to Policy (D2P) program, developed by Vital Strategies, CDC Foundation and the U.S. Centers for Disease Control and Prevention with support from the Bloomberg Philanthropies Data for Health Initiative</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
